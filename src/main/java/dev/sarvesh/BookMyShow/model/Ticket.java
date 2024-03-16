@@ -11,13 +11,16 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Ticket {
+public class Ticket extends BaseModel{
     private LocalDateTime timeOfBooking;
     private double totalAmount;
+
     @OneToMany
     private List<ShowSeat> showSeats;
+
     @ManyToOne
-    private Show show;
+    private Show movie_show;
+
     @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
 }

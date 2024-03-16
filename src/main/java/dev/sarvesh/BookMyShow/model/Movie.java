@@ -1,13 +1,15 @@
 package dev.sarvesh.BookMyShow.model;
 
 import dev.sarvesh.BookMyShow.model.constant.MovieFeature;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
+@Entity
 public class Movie extends BaseModel{
     private String name;
     private String Description;
