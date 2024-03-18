@@ -17,6 +17,10 @@ public class CityService {
         return cityRepository.save(city);
     }
 
+    public City SaveCity(City city){
+        return cityRepository.save(city);
+    }
+
     public boolean deleteCity(int cityId){
         cityRepository.deleteById(cityId);
         return true;
@@ -24,5 +28,9 @@ public class CityService {
 
     public City getCityByName(String cityName){
         return cityRepository.findCityByName(cityName);
+    }
+
+    public City getCityById(int cityId){
+        return cityRepository.findById(cityId).get();
     }
 }
