@@ -5,15 +5,19 @@ import dev.sarvesh.BookMyShow.model.City;
 import dev.sarvesh.BookMyShow.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CityController {
 
     @Autowired
     private CityService cityService;
+
+    @GetMapping("/getCityByName/{name}")
+    public ResponseEntity getCityByName(@PathVariable("name") String cityName){
+        City city = cityService.getCityByName(cityName);
+        return ResponseEntity.ok(city);
+    }
 
     @PostMapping("/city")
     public ResponseEntity createCity(@RequestBody CityRequestDTO cityRequestDTO){
@@ -30,5 +34,11 @@ public class CityController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @DeleteMapping("/deletecity/{id}")
+    public ResponseEntity deleteCity(@PathVariable("id") int cityId){
+        boolean isDeleted = cityService.deleteCity(cityId);
+        return ResponseEntity.ok(isDeleted);
     }
 }
