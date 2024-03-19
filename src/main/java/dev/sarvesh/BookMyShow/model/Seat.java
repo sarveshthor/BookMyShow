@@ -26,4 +26,14 @@ public class Seat extends BaseModel{
     @Enumerated(EnumType.STRING)
     private SeatStatus seatStatus;
 
+    public Seat() {
+    }
+
+    public Seat(String seatNumber, SeatType seatType, int row, int col, SeatStatus seatStatus) {
+        this.seatNumber = seatNumber;
+        this.seatType = seatType;
+        this.row = row;
+        this.col = col;
+        this.seatStatus = seatStatus;
+    }
 }

@@ -10,6 +10,14 @@ import java.util.List;
 @Setter
 @Entity
 public class City extends BaseModel{
+
+    public City() {
+    }
+
+    public City(String name) {
+        this.name = name;
+    }
+
     private String name;
     @OneToMany
     private List<Theatre> theatres;
