@@ -14,6 +14,8 @@ public class InitController {
 
     @PostMapping("/generateData")
     public ResponseEntity generateData(){
-        return ResponseEntity.ok(initService.initializeData());
+        return ResponseEntity.ok(
+                initService.initializeData()
+        );
     }
 }
